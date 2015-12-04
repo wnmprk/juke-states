@@ -18,6 +18,8 @@
 	<script src="/js/factories/album.js"></script>
 	<script src="/js/factories/song.js"></script>
 	<script src="/js/factories/artist.js"></script>
+	<script src="/angular-ui-router/build/angular-ui-router.js"></script>
+	
 </head>
 <body ng-app="juke">
 	<div id="main" class="container-fluid">
@@ -26,19 +28,20 @@
 			<sidebar ng-controller="MenuCtrl">
 				<section>
 					<h4 class="playlist-item">
-						<a ng-click="viewAlbums()" href="#">ALBUMS</a>
+						<a ui-sref="albums">ALBUMS</a>
 					</h4>
 				</section>
 				<section>
 					<h4 class="playlist-item">
-						<a ng-click="viewArtists()" href="#">ARTISTS</a>
+						<a ui-sref="artists">ARTISTS</a>
 					</h4>
 				</section>
 			</sidebar>
 		</div>
 
 		<div class="col-xs-10">
-
+		<ui-view></ui-view>
+<!-- 
 			<div ng-controller="ArtistsCtrl" ng-show="showMe">
 				<h3>Artists</h3>
 				<div class="list-group">
@@ -133,7 +136,7 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
+			</div> -->
 
 		</div>
 
