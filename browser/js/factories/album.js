@@ -22,6 +22,18 @@ app.factory('AlbumFactory', function ($http, SongFactory) {
 			return album;
 		});
 	};
+	AlbumFactory.fetchByArtist = function (artistId) {
+		return $http.get('/api/artists/' + artistId + '/albums')
+		.then(function (response) {
+			return response.data;
+		})
+		.then(function (albums) {
+			albums.forEach(function(album){
+				AlbumFactory.convert(album)
+			})
+			return albums;
+		});
+	};
 	AlbumFactory.convert = function (raw) {
 		raw.imageUrl = '/api/albums/' + raw._id + '.image';
 		return raw;
